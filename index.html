@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="techApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-controller="TechController">
+    <div class="container">
+        <input type="text" ng-model="searchText" placeholder="Keresés">
+        <div class="card-grid">
+            <div class="card" ng-repeat="tech in technologies | filter:searchText">
+                <div class="container">
+                    <img src="img/{{tech.img}}.jpg" alt="{{tech.title}}">
+                    <div class="card-body">
+                        <h4>{{tech.title}}</h4>
+                        <p>{{tech.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
